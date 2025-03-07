@@ -37,6 +37,7 @@ public class TaskController : ControllerBase
 
     [HttpGet]
     [Route("GetTasks")]
+    [ResponseCache(Duration = 30)]
     public async Task<CustomResponse> GetTasksAsync([FromQuery] FilterGetTaskDto dto, CancellationToken cancellationToken)
     {
         return await _taskService.GetTasksAsync(dto, cancellationToken);

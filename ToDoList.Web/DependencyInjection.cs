@@ -95,6 +95,6 @@ internal static class DependencyInjection
     }
 
     internal static IServiceCollection InjectOutputCache(this IServiceCollection services) =>
-        services.AddOutputCache();
+        services.AddResponseCaching();
 
 }
