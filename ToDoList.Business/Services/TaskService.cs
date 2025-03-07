@@ -16,7 +16,6 @@ public class TaskService : ITaskService
         _unitOfWork = (UnitOfWork)unitOfWork;
     }
 
-
     public async Task<CustomResponse> AddAsync(AddTaskDto dto, CancellationToken cancellationToken)
     {
         var newTask = new ToDoList.Model.Entities.Task()
