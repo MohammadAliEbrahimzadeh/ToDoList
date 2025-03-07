@@ -30,6 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ToDoList.Api\ToDoList.API.csproj" />
+    <ProjectReference Include="..\ToDoList.Business\ToDoList.Business.csproj" />
+    <ProjectReference Include="..\ToDoList.Common\ToDoList.Common.csproj" />
     <ProjectReference Include="..\ToDoList.DataAccess\ToDoList.DataAccess.csproj" />
   </ItemGroup>
 

@@ -16,4 +16,6 @@ public interface IUnitOfWork
     IQueryable<T> GetAsQueryable<T>(CancellationToken cancellationToken) where T : class;
 
     void Update<T>(T entity) where T : class;
+
+    public void Delete<T>(T entity) where T : class;
 }

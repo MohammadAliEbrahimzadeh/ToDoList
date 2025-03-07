@@ -26,6 +26,11 @@ public class BaseUnitOfWork : IUnitOfWork
         _context.Set<T>().Update(entity);
     }
 
+    public void Delete<T>(T entity) where T : class
+    {
+        _context.Set<T>().Remove(entity);
+    }
+
     public async Task<T?> FindByIdAsync<T>(object id, CancellationToken cancellationToken) where T : class
     {
         return await _context.Set<T>().FindAsync(id, cancellationToken);

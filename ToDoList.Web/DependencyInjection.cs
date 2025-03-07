@@ -1,6 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using ToDoList.Business.Contracts;
+using ToDoList.Business.Services;
+using ToDoList.Common.DTOs;
 using ToDoList.DataAccess;
 using ToDoList.DataAccess.Context;
 
@@ -58,13 +63,13 @@ internal static class DependencyInjection
 
     internal static IServiceCollection InjectServices(this IServiceCollection services)
     {
-        //services.AddScoped<IUserServices, UserServices>();
+        services.AddScoped<ITaskService, TaskService>();
         return services;
     }
 
-    //internal static IServiceCollection InjectFluentValidation(this IServiceCollection services) =>
-    //    services.AddValidatorsFromAssemblyContaining<ItemsDto>()
-    //    .AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
+    internal static IServiceCollection InjectFluentValidation(this IServiceCollection services) =>
+        services.AddValidatorsFromAssemblyContaining<AddTaskDto>()
+        .AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
 
     internal static IServiceCollection InjectLogger(this IServiceCollection services, IConfiguration configuration)
     {

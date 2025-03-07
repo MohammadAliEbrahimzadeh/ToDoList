@@ -12,7 +12,7 @@ builder.Services
     .InjectContext(builder.Configuration)
     .InjectUnitOfWork()
     .InjectServices()
-    //.InjectFluentValidation()
+    .InjectFluentValidation()
     .InjectLogger(builder.Configuration)
     .InjectOutputCache();
 
